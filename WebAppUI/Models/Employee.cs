@@ -1,0 +1,11 @@
+﻿namespace WebAppUI.Models
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Salary { get; set; }
+        public int? DeptId { get; set; }
+        public Department? Department { get; set; }
+    }
+}

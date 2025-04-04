@@ -1,0 +1,18 @@
+﻿@model Loan
+@{
+	ViewData["Title"] = "Create"; 
+}
+<h3>Add Loan</h3>
+<form action="Create" method="post" class="form-control">
+	<h5>Customer Name</h5>
+	<input asp-for="CustomerName" /><br />
+	<h5>Gender</h5>
+	<input asp-for="Gender" type="radio" value="Male"/> Male <br />
+	<input asp-for="Gender" type="radio" value="Female" /> Female <br />
+	<input asp-for="Gender" type="radio" value="Others" /> Others <br />
+	<h5>Principal Amount</h5>
+	<input asp-for="PrincipalAmount" type="number" /><br />
+	<h5>No Of Years</h5>
+	<input asp-for="NoOfYears" type="number" /><br />
+	<input type="submit" class="btn btn-primary" value="Add" />
+</form>

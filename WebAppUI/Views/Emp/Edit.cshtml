@@ -1,0 +1,14 @@
+﻿@model Employee
+@{
+	ViewData["Title"] = "Edit";
+}
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Create</h3>
+<form asp-action="Edit" method="post">
+	<input asp-for="Name"/>
+	<input asp-for="Salary" />
+	<select asp-for="DeptId" asp-items="@ViewBag.Departments"></select>
+	<input type="submit" value="Update" />
+</form>

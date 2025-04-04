@@ -1,0 +1,36 @@
+﻿@model List<Employee>
+@{
+	ViewData["Title"] = "Index";
+}
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a asp-action="Create" >Create New</a>
+<h3>Employees</h3>
+<div>
+	<form asp-action="Index">
+		<input name="Search" value="@ViewBag.Search"/>
+		<button type="submit">Search</button>
+	</form>
+</div>
+<table class="table">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Salary</th>
+		<th>Department</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in @Model)
+	{
+		<tr>
+			<td>@item.Name</td>
+			<td>@item.Salary</td>
+			<td>@item.Department?.Name</td>
+			<td><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+				<td><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+		</tr>
+	}
+	</tbody>
+</table>
