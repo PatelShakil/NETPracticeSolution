@@ -10,5 +10,10 @@
 	<input asp-for="Name"/>
 	<input asp-for="Salary" />
 	<select asp-for="DeptId" asp-items="@ViewBag.Departments"></select>
+	<select asp-for="Gender" >
+		<option value="0">Male</option>
+		<option value="1">Female</option>
+		<option value="2">Others</option>
+	</select>
 	<input type="submit" value="Create" />
 </form>

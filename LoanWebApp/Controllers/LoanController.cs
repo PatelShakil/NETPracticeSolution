@@ -34,9 +34,10 @@ namespace LoanWebApp.Controllers
                 loan.InterestAmount = InterestAmount;
                 loan.InterestRate = InterestRate;
                 await dbContext.AddAsync(loan);
-                await dbContext.SaveChangesAsync();
-            }
+                await dbContext.SaveChangesAsync();         
                 return RedirectToAction("Index");
+            }
+            return View(loan);
         }
     }
 }

@@ -32,12 +32,15 @@ namespace WebAppUI.Controllers
         {
             var dept = await client.GetFromJsonAsync<List<Department>>(baseUrl + "/dept");
             ViewData["Departments"] = new SelectList(dept,"Id","Name");
+            var gen = Enum.GetValues(typeof(Gender)).Cast<Gender>();
+            ViewData["Genders"] = new SelectList(gen);
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Name", "Salary", "DeptId")] Employee emp)
+        public async Task<IActionResult> Create([Bind("Name", "Salary", "DeptId","Gender")] Employee emp)
         {
+            Console.WriteLine(emp.Gender);
             var result = await client.PostAsJsonAsync(baseUrl, emp);
             if (result.IsSuccessStatusCode)
             {
