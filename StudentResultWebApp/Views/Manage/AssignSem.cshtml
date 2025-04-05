@@ -1,0 +1,52 @@
+﻿@model StudentResultWebApp.Models.Student
+
+@{
+    ViewData["Title"] = "AssignSem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AssignSem</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RollNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RollNo)
+        </dd>
+    </dl>
+    <form action="AssignSem" method="post" class="form">
+        <div>
+            <input type="hidden" asp-for="Id" />
+            <select name="SemId" asp-items="@ViewBag.semesters"></select>
+            <input type="submit" value="Assign" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <form action="AssignSubject" method="post" class="form">
+        <div>
+            <input type="hidden" asp-for="Id" />
+            <select name="SubId" asp-items="@ViewBag.subjects"></select>
+            <input type="submit" value="Assign" class="btn btn-primary" />
+        </div>
+
+    </form>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
